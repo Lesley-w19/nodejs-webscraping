@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Telugu:wght@100;200;300;400;500;600;700;800&display=swap");
+
+:root {
+  --primary-font: "Noto Serif Telugu", serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.image {
+  padding: 10px 15px;
+}
+.info {
+  text-align: center;
+  font-style: italic;
+}
+.title {
+  font-family: var(--primary-font);
+  font-weight: 400;
+}
+.price {
+  font-family: var(--primary-font);
+  font-weight: light;
+  color: rgb(109, 106, 106);
+}
