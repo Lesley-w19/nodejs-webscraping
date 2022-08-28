@@ -9,9 +9,15 @@
   padding: 0;
   box-sizing: border-box;
 }
-.image {
-  padding: 10px 15px;
+.products-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  cursor: pointer;
 }
+
 .info {
   text-align: center;
   font-style: italic;

@@ -1,33 +1,30 @@
-document.body.onload = products;
-
 const url = "http://localhost:3000/products";
 
 const products = () => {
-  let wrapper = document.querySelector(".product-wrapper");
+  let wrapper = document.querySelector(".products-wrapper");
 
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
       // console.log(data);
-      data?.map((product) => {
-        const image = product.image;
-        const img_src = image.replace(/{width}/g, "200");
-        // console.log(img_src);
-        const productItem = `<div class="col-sm-6 col-md-4 col-lg-3 product">
-    <div class="image mb-3">
-      <img
-        src=${img_src}}
-      />
-    </div>
-    <div class="info p-2 mx-auto">
-      <h3 class="title">${product.title}</h3>
-      <p class="price">${product.price}</p>
-    </div>
-  </div>`;
+      data.map((product) => {
+        let image = product.image;
+        let img_src = image.replace(/{width}/, "200");
+        // console.log(image);
+        const productItem = `<div class="card col-sm-6 col-md-4 col-lg-3  mb-3 ">
+        <img class="card-img-top img" src=${img_src} alt=${product.title}>
+        <div class="card-body info">
+          <h5 class="card-title title">${product.title}</h5>
+          <p class="card-text price">${product.price}</p>
+          <a href=${img_src} class="btn btn-primary">Show picture</a>
+        </div>
+      </div>`;
 
-        wrapper.innerHTML = productItem;
+        wrapper.insertAdjacentHTML("beforeend", productItem);
       });
     })
     .catch((error) => console.log(error));
 };
 // window.addEventListener("DOMContentLoaded", products, false);
+
+document.body.onload = products;

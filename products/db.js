@@ -1,5 +1,4 @@
 import sql from "mysql";
-import * as uuid from "uuid";
 import { getScrapData } from "./scrap.js";
 
 //create connection
