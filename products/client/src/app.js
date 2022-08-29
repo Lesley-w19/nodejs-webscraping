@@ -25,6 +25,5 @@ const products = () => {
     })
     .catch((error) => console.log(error));
 };
-// window.addEventListener("DOMContentLoaded", products, false);
 
 document.body.onload = products;

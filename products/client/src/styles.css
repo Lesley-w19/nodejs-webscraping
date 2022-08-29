@@ -17,6 +17,12 @@
   flex-wrap: wrap;
   cursor: pointer;
 }
+.form-wrapper {
+  padding: 10px 20px;
+}
+.form-group input {
+  padding: 10px 20px;
+}
 
 .info {
   text-align: center;
