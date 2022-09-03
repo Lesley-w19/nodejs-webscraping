@@ -3,11 +3,11 @@ import { getScrapData } from "./scrap.js";
 
 //create connection
 export const connection = sql.createConnection({
-  host: "127.0.0.1",
-  port: 3306,
-  user: "root2",
-  password: "root2_77",
-  database: "shop",
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
 });
 
 //connect to the database
@@ -22,28 +22,28 @@ connection.connect((err) => {
 
 // getScrapData();
 
-// export const addProducts = async () => {
-//   try {
-//     const data = await getScrapData();
+export const addProducts = async () => {
+  try {
+    const data = await getScrapData();
 
-//     //   console.log("this is the ", data);
+    //   console.log("this is the ", data);
 
-//     connection.query(
-//       "INSERT INTO zuriProducts (title, image, price) VALUES ?",
-//       [data.map((item) => [item.title, item.image_src, item.price])],
-//       (err, result) => {
-//         if (err) {
-//           console.log(err);
-//           console.log("not inserted");
-//         }
+    connection.query(
+      "INSERT INTO zuriProducts (title, image, price) VALUES ?",
+      [data.map((item) => [item.title, item.image_src, item.price])],
+      (err, result) => {
+        if (err) {
+          console.log(err);
+          console.log("Inserted sunccessfully...");
+        }
 
-//         connection.end();
-//       }
-//     );
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+        connection.end();
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 // get the products from db
 export const getProducts = (req, res) => {
