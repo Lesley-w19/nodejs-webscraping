@@ -2,6 +2,12 @@ const url = "http://localhost:3000/products";
 
 const products = () => {
   let wrapper = document.querySelector(".products-wrapper");
+  let searchname = document.querySelector(".name").value;
+
+  searchname.addEventListener("change", (e) => {
+    e.preventDefault();
+    console.log(e.value);
+  });
 
   fetch(url)
     .then((response) => response.json())
